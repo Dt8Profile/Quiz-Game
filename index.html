@@ -5,13 +5,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
     <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 
-<body>
-    <div class="container">
+<body class="flex items-center justify-center h-screen ">
 
-    </div>
+    <video class="w-full h-full object-cover" autoplay muted loop>
+        <source src="https://video.wixstatic.com/video/d47472_58cce06729c54ccb935886c4b3647274/1080p/mp4/file.mp4"
+            type="video/mp4">
+    </video>
+
+
+
+    <div id="quiz-container" class=" absolute max-w-md p-6 bg-white rounded-md ">
+        <div id="quiz-container" class="max-w-md p-6 bg-white rounded-md ">
+            <div id="start-container" class="">
+                <h1 class="text-2xl font-bold mb-4 text-gray-800">Welcome to the Skyrim Class Chooser Quiz</h1>
+                <button onclick="startQuiz()"
+                    class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">Start
+                    Quiz</button>
+            </div>
+
+            <div id="question-1" class="question hidden">
+                <h1 class="text-2xl font-bold mb-4 text-gray-800">Question 1: What would be your weapon of choice?</h1>
+                <div class="flex flex-col space-y-4">
+                    <button onclick="nextQuestion('Warrior')"
+                        class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">Sword</button>
+                    <button onclick="nextQuestion('Mage')"
+                        class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">Staff</button>
+                    <button onclick="nextQuestion('Thief')"
+                        class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">Bow</button>
+                </div>
+            </div>
+
+            <div id="question-2" class="question hidden">
+                <h1 class="text-2xl font-bold mb-4 text-gray-800">Question 2: How do you approach conflicts?</h1>
+                <div class="flex flex-col space-y-4">
+                    <button onclick="nextQuestion('Warrior')"
+                        class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">Face
+                        them head-on</button>
+                    <button onclick="nextQuestion('Mage')"
+                        class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">Use
+                        magic from a distance</button>
+                    <button onclick="nextQuestion('Thief')"
+                        class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">Sneak
+                        around and avoid them</button>
+                </div>
+            </div>
+
+            <div id="question-3" class="question hidden">
+                <h1 class="text-2xl font-bold mb-4 text-gray-800">Question 3: What kind of armor do you prefer?</h1>
+                <div class="flex flex-col space-y-4">
+                    <button onclick="nextQuestion('Warrior')"
+                        class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">Heavy
+                        armor</button>
+                    <button onclick="nextQuestion('Mage')"
+                        class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">Robes</button>
+                    <button onclick="nextQuestion('Thief')"
+                        class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">Light
+                        armor</button>
+                </div>
+            </div>
+
+            <div id="question-4" class="question hidden">
+                <h1 class="text-2xl font-bold mb-4 text-gray-800">Question 4: What is your preferred playstyle?</h1>
+                <div class="flex flex-col space-y-4">
+                    <button onclick="nextQuestion('Warrior')"
+                        class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">Aggressive</button>
+                    <button onclick="nextQuestion('Mage')"
+                        class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">Strategic</button>
+                    <button onclick="nextQuestion('Thief')"
+                        class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">Stealthy</button>
+                </div>
+            </div>
+
+            <div id="question-5" class="question hidden">
+                <h1 class="text-2xl font-bold mb-4 text-gray-800">Question 5: What is your favorite school of magic?
+                </h1>
+                <div class="flex flex-col space-y-4">
+                    <button onclick="nextQuestion('Warrior')"
+                        class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">I
+                        prefer weapons</button>
+                    <button onclick="nextQuestion('Mage')"
+                        class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">Destruction</button>
+                    <button onclick="nextQuestion('Thief')"
+                        class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">Illusion</button>
+                </div>
+
+            </div>
+
+
+            <div id="result" class="hidden">
+                <h1 class="text-2xl font-bold mb-4 text-gray-800">Your Skyrim Class:</h1>
+                <p id="class-result" class="text-3xl font-bold text-blue-500"></p>
+                <button onclick="retakeQuiz()"
+                    class="btn mt-4 bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300 transform hover:scale-105">Retake
+                    Quiz</button>
+            </div>
+
+        </div>
+
+
+        <script src="index.js"></script>
 </body>
+
 
 </html>

@@ -1,0 +1,18 @@
+body {
+  font-family: "MedievalSharp", cursive;
+  background-color: #1f1f1f;
+}
+
+.question {
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
