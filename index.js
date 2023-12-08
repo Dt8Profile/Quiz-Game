@@ -1,8 +1,10 @@
+// Variables to keep track of the current question and counts for each class
 let currentQuestion = 1;
 let warriorCount = 0;
 let mageCount = 0;
 let thiefCount = 0;
 
+// Function to start the quiz by hiding the start container and showing the first question
 function startQuiz() {
   const startContainer = document.getElementById("start-container");
   const questionContainer = document.getElementById(
@@ -13,6 +15,7 @@ function startQuiz() {
   questionContainer.classList.remove("hidden");
 }
 
+// Function to handle the transition to the next question and update class counters
 function nextQuestion(classType) {
   const currentQuestionElement = document.getElementById(
     `question-${currentQuestion}`
@@ -30,6 +33,7 @@ function nextQuestion(classType) {
 
   currentQuestion += 1;
 
+  // Check if there are more questions or if the quiz is completed
   if (currentQuestion <= 5) {
     const nextQuestionElement = document.getElementById(
       `question-${currentQuestion}`
@@ -40,6 +44,7 @@ function nextQuestion(classType) {
   }
 }
 
+// Function to display the result based on the highest class count
 function showResult() {
   const resultContainer = document.getElementById("result");
   const resultElement = document.getElementById("class-result");
@@ -59,14 +64,15 @@ function showResult() {
   resultContainer.classList.remove("hidden");
 }
 
+// Function to reset the quiz to its initial state for a retake
 function retakeQuiz() {
-  // Reset the quiz to the initial state
+  // Reset the quiz variables
   currentQuestion = 1;
   warriorCount = 0;
   mageCount = 0;
   thiefCount = 0;
 
-  // Hide result container
+  // Hide the result container
   const resultContainer = document.getElementById("result");
   resultContainer.classList.add("hidden");
 
